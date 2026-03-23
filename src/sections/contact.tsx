@@ -19,85 +19,84 @@ export default function Contact() {
 
   return (
     <div id="contact" className="relative min-h-screen w-full overflow-hidden">
-      {/* Background beams animation — same effect as Amine's rain */}
-      <BackgroundBeams />
+      <BackgroundBeams>
+        <div className="relative z-10 max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
+          <h2 className="text-2xl md:text-4xl mb-4 text-black dark:text-white font-bold">
+            Let&apos;s Connect
+          </h2>
+          <p className="text-neutral-700 dark:text-neutral-300 text-base md:text-lg max-w-sm mb-16">
+            Open to internship and junior developer opportunities.
+          </p>
 
-      <div className="relative z-10 max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-2xl md:text-4xl mb-4 text-black dark:text-white font-bold">
-          Let&apos;s Connect
-        </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-base md:text-lg max-w-sm mb-16">
-          Open to internship and junior developer opportunities.
-        </p>
+          <div className="flex flex-col lg:flex-row gap-16">
 
-        <div className="flex flex-col lg:flex-row gap-16">
-
-          {/* Left — Form */}
-          <motion.form
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-5 w-full lg:w-1/2"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex flex-col gap-1.5">
-              <label className="text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">Name</label>
-              <input
-                name="name"
-                required
-                type="text"
-                placeholder="Your name"
-                className="rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm px-4 py-3 text-sm md:text-base text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
-              />
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <label className="text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">Email Address</label>
-              <input
-                name="email"
-                required
-                type="email"
-                placeholder="your@email.com"
-                className="rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm px-4 py-3 text-sm md:text-base text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
-              />
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <label className="text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">Message</label>
-              <textarea
-                name="message"
-                required
-                rows={6}
-                placeholder="Your message..."
-                className="rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm px-4 py-3 text-sm md:text-base text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 resize-none"
-              />
-            </div>
-            <button
-              type="submit"
-              className="self-start flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black text-sm md:text-base font-bold px-6 py-3 rounded-lg hover:-translate-y-1 transition-transform duration-300"
+            {/* Left — Form */}
+            <motion.form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-5 w-full lg:w-1/2"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
             >
-              Send →
-            </button>
-            {submitted && (
-              <p className="text-sm text-fuchsia-500 mt-1">Opening your mail client...</p>
-            )}
-          </motion.form>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">Name</label>
+                <input
+                  name="name"
+                  required
+                  type="text"
+                  placeholder="Your name"
+                  className="rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm px-4 py-3 text-sm md:text-base text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">Email Address</label>
+                <input
+                  name="email"
+                  required
+                  type="email"
+                  placeholder="your@email.com"
+                  className="rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm px-4 py-3 text-sm md:text-base text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+                />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">Message</label>
+                <textarea
+                  name="message"
+                  required
+                  rows={6}
+                  placeholder="Your message..."
+                  className="rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm px-4 py-3 text-sm md:text-base text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 resize-none"
+                />
+              </div>
+              <button
+                type="submit"
+                className="self-start flex items-center gap-2 bg-black dark:bg-white text-white dark:text-black text-sm md:text-base font-bold px-6 py-3 rounded-lg hover:-translate-y-1 transition-transform duration-300"
+              >
+                Send →
+              </button>
+              {submitted && (
+                <p className="text-sm text-fuchsia-500 mt-1">Opening your mail client...</p>
+              )}
+            </motion.form>
 
-          {/* Right — Contact info */}
-          <motion.div
-            className="flex flex-col gap-6 w-full lg:w-1/2 justify-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            viewport={{ once: true }}
-          >
-            <ContactItem icon={<LocationIcon />} label="Ben Arous, Tunis, Tunisia" />
-            <ContactItem icon={<EmailIcon />} label="siouarkhalfaoui@gmail.com" href="mailto:siouarkhalfaoui@gmail.com" />
-            <ContactItem icon={<PhoneIcon />} label="+216 94 481 862" href="tel:+21694481862" />
-            <ContactItem icon={<LinkedinIcon />} label="linkedin.com/in/siwarkhalfaoui" href="https://linkedin.com/in/siwarkhalfaoui" />
-            <ContactItem icon={<GithubIcon />} label="github.com/SiwarKhalfaoui" href="https://github.com/SiwarKhalfaoui" />
-          </motion.div>
+            {/* Right — Contact info */}
+            <motion.div
+              className="flex flex-col gap-6 w-full lg:w-1/2 justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              viewport={{ once: true }}
+            >
+              <ContactItem icon={<LocationIcon />} label="Ben Arous, Tunis, Tunisia" />
+              <ContactItem icon={<EmailIcon />} label="siouarkhalfaoui@gmail.com" href="mailto:siouarkhalfaoui@gmail.com" />
+              <ContactItem icon={<PhoneIcon />} label="+216 94 481 862" href="tel:+21694481862" />
+              <ContactItem icon={<LinkedinIcon />} label="linkedin.com/in/siwarkhalfaoui" href="https://linkedin.com/in/siwarkhalfaoui" />
+              <ContactItem icon={<GithubIcon />} label="github.com/SiwarKhalfaoui" href="https://github.com/SiwarKhalfaoui" />
+            </motion.div>
+          </div>
         </div>
-      </div>
+      </BackgroundBeams>
     </div>
   );
 }
