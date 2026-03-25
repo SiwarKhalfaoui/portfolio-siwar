@@ -12,20 +12,20 @@ const projects = [
     stack: ["Node.js", "Express", "React", "React Flow", "Chakra UI", "PostgreSQL", "Docker", "MQTT", "ThingsBoard", "Toxiproxy"],
     github: "https://github.com/SiwarKhalfaoui/pfe_project",
   },
-  {
+{
     title: "FleetCart — E-Commerce Platform",
     type: "Internship — RIADVICE",
     description:
-      "Contributed to FleetCart, a production Laravel + Vue.js e-commerce platform. Implemented product badges, custom measurement units, and PDF invoice generation. Fixed critical bugs, optimized models and flows, and integrated Google Tag Manager for improved analytics and UX.",
-    stack: ["Laravel 11", "Vue.js 3", "PHP", "MySQL", "Google Tag Manager"],
+      "Contributed to FleetCart, a production Laravel + Vue.js e-commerce platform. Delivered new features including product badge management and custom unit of measure support, resolved critical bugs, and integrated Google Analytics into the admin panel.",
+    stack: ["Laravel 11", "Vue.js 3", "PHP", "MySQL", "Google Analytics"],
     github: null,
   },
   {
-    title: "Multi-Provider AI Conversational Bot",
+    title: "Zumind — AI-Powered Zulip Bot",
     type: "Internship — RIADVICE",
     description:
-      "Production AI assistant supporting multiple LLM providers (OpenAI, OVHcloud, Stability AI) behind a unified interface. Built a RAG pipeline using LangChain and pgvector for semantic search over internal knowledge bases. Migrated the UI to React + TypeScript.",
-    stack: ["React", "TypeScript", "LangChain", "RAG", "pgvector", "OpenAI", "OVHcloud", "Stability AI"],
+      "Contributed to Zumind, a production AI bot for Zulip integrating multiple LLM providers (OpenAI, OVHcloud , Stability AI) behind a unified interface. Built with Python/Django, PostgreSQL, and Redis. Migrated the frontend config page from HTML/JS to React/TypeScript using django-webpack-loader. Wrote unit tests covering core bot functionalities.",
+    stack: ["Python", "Django", "PostgreSQL", "Redis","RAG", "pgvector",  "OpenAI", "OVHcloud", "Stability AI" , "React", "TypeScript", "Docker"],
     github: null,
   },
   {

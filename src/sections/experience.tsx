@@ -10,18 +10,18 @@ const experiences = [
     company: "RIADVICE",
     project: "FleetCart (Laravel 11 / Vue.js 3)",
     stack: ["Laravel 11", "Vue.js 3", "PHP", "MySQL", "Google Tag Manager"],
-    bullets: [
+   bullets: [
       {
-        bold: "Feature development on FleetCart:",
-        rest: " implemented product badges, custom measurement units, and PDF invoice generation.",
+        bold: "Feature development:",
+        rest: " implemented product badge management and custom unit of measure support across the product and order modules.",
       },
       {
         bold: "Bug fixing & optimization:",
-        rest: " resolved critical bugs, optimized models and application flows, improving overall stability and user experience.",
+        rest: " resolved critical issues, improving platform stability and UI consistency.",
       },
       {
-        bold: "UI/UX improvements:",
-        rest: " integrated Google Tag Manager and various frontend improvements to enhance analytics and user experience.",
+        bold: "Analytics:",
+        rest: " integrated Google Analytics settings into the admin panel.",
       },
     ],
   },
@@ -29,29 +29,20 @@ const experiences = [
     date: "Jun 2025 – Sep 2025",
     title: "AI Developer Intern",
     company: "RIADVICE",
-    project: "Multi-Provider Conversational AI Bot",
-    stack: [
-      "React",
-      "TypeScript",
-      "LangChain",
-      "RAG",
-      "pgvector",
-      "OpenAI",
-      "OVHcloud",
-      "Stability AI",
-    ],
+    project: "Zumind — AI-Powered Zulip Bot",
+    stack: ["Python", "Django", "PostgreSQL", "Redis", "OpenAI", "OVHcloud", "Stability AI" , "React", "TypeScript", "Docker"],
     bullets: [
       {
-        bold: "Multi-provider AI assistant:",
-        rest: " contributed to the development of a conversational bot integrating OpenAI, OVHcloud, and Stability AI behind a unified interface.",
-      },
-      {
-        bold: "RAG pipeline:",
-        rest: " implemented Retrieval-Augmented Generation using pgvector embeddings for semantic search over internal knowledge bases.",
+        bold: "Multi-provider AI bot:",
+        rest: " contributed to Zumind, a production Zulip bot integrating OpenAI , Stability AI and OVHcloud behind a unified interface.",
       },
       {
         bold: "Frontend migration:",
-        rest: " migrated the chatbot interface to React + TypeScript.",
+        rest: " refactored the config page to React/TypeScript, unified with the help page using django-webpack-loader.",
+      },
+      {
+        bold: "Testing:",
+        rest: " wrote unit tests covering core bot functionalities.",
       },
     ],
   },
