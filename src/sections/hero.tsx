@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ShootingStars } from "@/components/shooting-stars";
 import { StarsBackground } from "@/components/stars-background";
 import { CardBody, CardContainer, CardItem } from "@/components/3d-card";
@@ -14,17 +14,17 @@ export default function Hero() {
       className="flex flex-col md:flex-row h-screen items-center justify-center overflow-hidden relative w-full gap-0 sm:gap-20 md:gap-30 lg:gap-40 p-8 sm:p-12 md:p-16 xl:p-24"
     >
       {/* Left — Title */}
-<h2 className="relative z-20 text-3xl md:text-5xl xl:text-7xl font-bold text-center text-black dark:text-white font-sans tracking-tight">
-  Full Stack Developer <br />
-  <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
-    <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent py-4 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
-      <span>Engineering Student</span>
-    </div>
-    <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-violet-500 via-fuchsia-500 to-pink-500 py-4">
-      <span>Engineering Student</span>
-    </div>
-  </div>
-</h2>
+      <h2 className="relative z-20 text-3xl md:text-5xl xl:text-7xl font-bold text-center text-black dark:text-white font-sans tracking-tight">
+        Full Stack Developer <br />
+        <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
+          <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent py-4 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
+            <span>Engineering Student</span>
+          </div>
+          <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-violet-500 via-fuchsia-500 to-pink-500 py-4">
+            <span>Engineering Student</span>
+          </div>
+        </div>
+      </h2>
 
       {/* Right — Photo + Name + Buttons */}
       <div className="flex flex-col items-center justify-center gap-[50px] sm:gap-[40px] z-[50]">
@@ -52,7 +52,7 @@ export default function Hero() {
         </CardContainer>
 
         <div className="flex flex-col gap-2 sm:flex-row justify-between px-5">
-          <HeroButton href="/files/Siwar_Khalfaoui_Resume.pdf" download text="Resume" icon={<ResumeSvg />} />
+          <ResumeDropdown />
           <HeroButton href="https://github.com/SiwarKhalfaoui" text="GitHub" icon={<GithubSvg />} />
           <HeroButton href="https://linkedin.com/in/siwarkhalfaoui" text="LinkedIn" icon={<LinkedinSvg />} />
         </div>
@@ -64,12 +64,73 @@ export default function Hero() {
   );
 }
 
-const HeroButton = ({ href, text, icon, download }: { href: string; text: string; icon: React.ReactNode; download?: boolean }) => (
+const ResumeDropdown = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex gap-2 bg-black dark:bg-white text-sm rounded-md border border-black px-3 py-2 font-bold transform hover:-translate-y-1 transition duration-400 cursor-pointer"
+      >
+        <div className="h-5 w-5">
+          <ResumeSvg />
+        </div>
+        <div className="text-white dark:text-black">Resume</div>
+        <ChevronDownSvg isOpen={isOpen} />
+      </button>
+
+      {isOpen && (
+        <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-md shadow-lg z-[100] overflow-hidden">
+          <a
+            href="/files/Siwar_Khalfaoui_Resume.pdf"
+            download
+            className="flex items-center gap-3 px-4 py-3 text-sm text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+          >
+            <span className="text-base">🇬🇧</span>
+            <span>English</span>
+          </a>
+          <a
+            href="/files/Siwar_Khalfaoui_Resume_FR.pdf"
+            download
+            className="flex items-center gap-3 px-4 py-3 text-sm text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors border-t border-neutral-200 dark:border-neutral-700"
+          >
+            <span className="text-base">🇫🇷</span>
+            <span>Français</span>
+          </a>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const ChevronDownSvg = ({ isOpen }: { isOpen: boolean }) => (
+  <svg
+    className={`w-4 h-4 text-white dark:text-black transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const HeroButton = ({ href, text, icon }: { href: string; text: string; icon: React.ReactNode }) => (
   <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    {...(download ? { download: true } : {})}
     className="flex gap-2 bg-black dark:bg-white text-sm rounded-md border border-black px-3 py-2 font-bold transform hover:-translate-y-1 transition duration-400"
   >
     <div className="h-5 w-5">{icon}</div>
